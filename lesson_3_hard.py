@@ -42,38 +42,3 @@ print(int(b), c)
 # Подсказка:
 # Чтобы получить список больших букв русского алфавита:
 # print(list(map(chr, range(ord('А'), ord('Я')+1)))
-
-import os
-
-
-
-def write_in_file(name, lst):
-    '''Выполняет открытие файла с переданным именем, если файла в директори нет
-    создает новый файл. После записи в файл элементов списка закрывает файл.'''
-    file_name = 'data/fruits_' + name + '.txt'
-    file = open(file_name, 'w', encoding='utf-8')
-    for n in lst:
-        file.write(n)
-    file.close()
-print('-' * 50)
-print('Задача 3')
-first_liter = ''
-count = 0
-temp = []
-fruits = open('data/fruits.txt', 'r', encoding='utf-8')
-for line in fruits:
-    if (line[0] != first_liter) & (count == False):
-        first_liter = line[0]
-    elif line[0] == first_liter:
-        name = line[0]
-        temp.append(line)
-    else:
-        write_in_file(name, temp)
-        first_liter = line[0]
-        temp = []
-        temp.append(line)
-        if name != line[0]:
-            name = line[0]
-    count += 1
-write_in_file(name, temp)
-print('Формирование файлов по именам фруктво закончено!')

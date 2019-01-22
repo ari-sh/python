@@ -8,8 +8,9 @@ __author__ = 'Шонтукова Арина Артуровна'
 # Для решения задачи не используйте встроенные функции и функции из модуля math.
 
 def my_round(number, ndigits):
-    a = round(number, ndigits)
-    return a
+    a,b = str(number).split('.')
+    number = float('.'.join([a,b[:ndigits]]))
+    return number
 
 print(my_round(2.1999967, 5))
 print(my_round(2.9999967, 5))
@@ -24,7 +25,9 @@ print(my_round(2.9999967, 5))
 def lucky_ticket(ticket_number):
     a = [int(x) for x in str(ticket_number)]
     if sum(a[0:3]) == sum(a[3:6]):
-        return int("".join(map(str, a)))
+        return "Билет счастливый:", int("".join(map(str, a)))
+    else:
+        return "Билет не счастливый"
         
 print(lucky_ticket(123006))
 print(lucky_ticket(12321))

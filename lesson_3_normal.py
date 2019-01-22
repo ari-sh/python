@@ -6,13 +6,21 @@ __author__ = 'Шонтукова Арина Артуровна'
 # Первыми элементами ряда считать цифры 1 1
 
 import math
-
+'''
 def fibonacci(n, m):
     f = [1, 1]
     for i in range(2, n + 1,):
         f.append(f[i-1] + f[i-2])
     return f
 print(fibonacci(5, 10))
+'''
+
+def fibonacci(n, m):
+f = [0, 1]
+for i in range(2, m+1):
+f.append(f[i-1] + f[i-2])
+return f[n:]
+print(fibonacci(3, 10))
 
 # Задача-2:
 # Напишите функцию, сортирующую принимаемый список по возрастанию.
